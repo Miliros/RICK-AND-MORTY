@@ -5,9 +5,17 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url(https://i.pinimg.com/564x/a4/da/3c/a4da3ca11eb6e21ef39ee1ddb46af296.jpg);
+  background-repeat: no-repeat;
+	background-size: cover;
+  
+  
+
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Libre+Franklin:ital,wght@0,100;1,300&family=Montserrat:ital,wght@0,700;1,400&family=Plus+Jakarta+Sans:wght@200&display=swap');

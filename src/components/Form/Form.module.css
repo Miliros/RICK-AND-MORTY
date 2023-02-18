@@ -1,0 +1,23 @@
+.styleForm{
+    background-color: rgb(143, 127, 127);
+    height: 400px;
+    width: 400px;
+    display: inline-block;
+}
+.buttonForm{
+background-color: rgba(73, 211, 170, 0.836);
+border-radius: 5px;
+padding: 7px;
+margin-top: 15px;
+margin-bottom: 13px;
+}
+.buttonForm:hover{
+    background-color:rgba(7, 107, 69, 0.445);
+    cursor: pointer;
+}
+.error {
+   color:red;
+    
+  }
+  
+  

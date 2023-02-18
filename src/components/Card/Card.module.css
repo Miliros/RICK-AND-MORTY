@@ -1,0 +1,52 @@
+.divCard {
+  margin: 10px;
+  width: 400px;
+  border: 2px solid black;
+  border-radius: 10px;
+  background-color: rgba(228, 203, 174, 0.897);
+}
+
+.buttonOnClose {
+  background-color: rgba(214, 49, 49, 0.733);
+  color: white;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-left: 340px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.buttonOnClose:hover {
+  background-color: rgba(129, 25, 25, 0.897);
+  transform: scale(1.1);
+}
+.divImg {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+}
+
+.name {
+  background-color: rgba(19, 18, 18, 0.493);
+  position: absolute;
+  top: 1px;
+  left: 10px;
+  padding: 5px;
+  font-family: 'Cinzel', serif;
+  color: white;
+  font-size: 20px;
+  font-weight: 400;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+.cardProps{
+  font-family: 'Cinzel', serif;
+  display: flex;
+  
+
+}
+.divProps{
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 11px;
+}

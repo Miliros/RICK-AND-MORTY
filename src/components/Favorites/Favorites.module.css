@@ -1,0 +1,8 @@
+.divCard {
+  margin: 10px;
+  width: 400px;
+  border: 2px solid black;
+  border-radius: 10px;
+  background-color: rgba(228, 203, 174, 0.897);
+}
+  
