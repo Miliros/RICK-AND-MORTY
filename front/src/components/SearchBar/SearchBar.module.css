@@ -1,29 +1,43 @@
-.addButton{
-background-color: rgba(73, 211, 170, 0.836);
-border-radius: 5px;
-padding: 7px;
-margin-top: 15px;
-margin-bottom: 13px;
+.addButton {
+  background-color: rgba(73, 211, 170, 0.836);
+  border-radius: 5px;
+  padding: 7px;
+  padding-left: 4.5px;
+  margin-top: 15px;
+  margin-bottom: 13px;
 }
-.addButton:hover{
-    background-color:rgba(7, 107, 69, 0.445);
-    cursor: pointer;
+.addButton:hover {
+  background-color: rgba(7, 107, 69, 0.445);
+  cursor: pointer;
 }
 
-.inputSearch{
-    border-radius: 5px;
-    margin-right: 15px;
-    border: 1px solid black;
-    box-shadow: 1px -1.5px black;
-    padding: 7px;
-    height: 30px;
-    margin-top: 15px;
+.inputSearch {
+  border-radius: 5px;
+  margin-right: 15px;
+  border: 1px solid black;
+  box-shadow: 1px -1.5px black;
+  padding: 7px;
+  height: 30px;
+  margin-top: 15px;
 }
-.divSerchBar{
-    padding-top: 15px;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    margin-right: 75px;
-    
+.divSerchBar {
+  padding-top: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-right: 75px;
+}
+.buttonRandom {
+  background-color: rgba(73, 211, 170, 0.836);
+  border-radius: 5px;
+  padding: 7px;
+  padding-left: 4.5px;
+  margin-top: 15px;
+  margin-bottom: 13px;
+  margin-left: 7px;
+  margin-right: -25px;
+}
+.buttonRandom:hover {
+  background-color: rgba(7, 107, 69, 0.445);
+  cursor: pointer;
 }

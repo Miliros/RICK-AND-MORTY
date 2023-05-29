@@ -9,7 +9,7 @@ export default function Nav(props) {
     <div>
       {location.pathname !== "/" && (
         <div className={styles.navBar}>
-          <SearchBar onSearch={props.onSearch} />
+          <SearchBar onSearch={props.onSearch} random={props.random} />
           <Link to="/About">About </Link>
           <Link to="/Home">Home</Link>
           <Link to="/favorites">Favorites</Link>

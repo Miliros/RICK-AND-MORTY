@@ -1,18 +1,12 @@
 import styles from "./About.module.css";
 
 function About() {
-
-     return(
-        <div>
-        <h1>Milagros Rosales</h1>
-        <p>Esta pagina fue creada por Milagros Rosales, durante la cursada del modulo 2, del Bootcamp
-            de Henry, con la finalidad de poner en practica los conocimientos aprendidos con React.
-        </p>
-        </div>
-     )
-
-
+  return (
+    <div>
+      <h1>Milagros Rosales</h1>
+      <h3>App de Rick y Morty - M2 - Henry</h3>
+    </div>
+  );
 }
-
 
 export default About;

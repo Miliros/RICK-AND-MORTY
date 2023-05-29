@@ -1,6 +1,7 @@
 const initialState = {
   myFavorites: [],
   allCharacters: [],
+  detail: [],
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -9,7 +10,7 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         myFavorites: [...state.myFavorites, action.payload],
-        allCharacters: [...state.myFavorites]
+        allCharacters: [...state.myFavorites],
       };
     case "DELETE_CHARACTER": {
       return {
@@ -32,19 +33,24 @@ const rootReducer = (state = initialState, action) => {
         ...state.allCharacters,
         myFavorites: () => {
           if (action.payload === "Ascendente") {
-            return state.allCharacters.sort((a,b) => a-b);
+            return state.allCharacters.sort((a, b) => a - b);
           } else if (action.payload === "Descendente") {
-            return state.allCharacters.sort((a,b) => a+b);
+            return state.allCharacters.sort((a, b) => a + b);
           }
         },
       };
     }
-    case "GET_FAVS":{
-      return{
+    case "GET_FAVS": {
+      return {
         ...state,
-        myFavorites:payload
-      }
+        myFavorites: action.payload,
+      };
     }
+    case "GET_DETAILS":
+      return {
+        ...state,
+        detail: action.payload,
+      };
     default:
       return { ...state };
   }

@@ -11,7 +11,6 @@ import Detail from "./components/Detail/Detail";
 import Form from "./components/Form/Form";
 import Favorites from "./components/Favorites/Favorites";
 
-
 function App() {
   const [characters, setCharacters] = useState([]);
   const [access, setAccess] = useState(false);
@@ -30,35 +29,42 @@ function App() {
   }, [access]);
 
   function onSearch(id) {
-    fetch(`http://localhost:3001/rickandmorty/onsearch/${id}`)
-    .then((response) => response.json())
-    .then((data) => {
+    fetch(`http://localhost:3000/onsearch/${id}`)
+      .then((response) => response.json())
+      .then((data) => {
         if (data.name) {
-          setCharacters((oldChars) => [...oldChars, data]);
+          characters.find((element) => element.id === data.id) === undefined
+            ? setCharacters((characters) => [...characters, data])
+            : alert("Personaje repetido, prueba otro ID.");
         } else {
-          window.alert("No hay personajes con ese ID");
+          alert("No hay personajes con ese ID.");
         }
       });
   }
+
   function onClose(id) {
     setCharacters(characters.filter((character) => character.id !== id));
+  }
+  function random() {
+    let randomId = Math.floor(Math.random() * 826);
+    onSearch(randomId);
   }
 
   return (
     <div>
       <div className="App" style={{ padding: "35px" }}>
-        <Nav onSearch={onSearch} />
+        <Nav onSearch={onSearch} random={random} />
         <div>
           <Routes>
-            <Route path="/" element={<Form login={login} />}></Route>
+            <Route exact path="/" element={<Form login={login} />}></Route>
             <Route path="/" element={<Nav />}></Route>
             <Route
               path="/home"
               element={<Cards characters={characters} onClose={onClose} />}
             ></Route>
             <Route path="/about" element={<About />}></Route>
-            <Route path='/detail/:detailId' element={<Detail />}></Route>
-            <Route path="/favorites" element={<Favorites/>}></Route>
+            <Route path="/detail/:id" element={<Detail />}></Route>
+            <Route path="/favorites" element={<Favorites />}></Route>
           </Routes>
         </div>
         <br />
