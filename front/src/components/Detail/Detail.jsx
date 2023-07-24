@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { getDetail } from "../../redux/action";
+import styles from "./Detail.module.css";
 
 export default function Detail() {
   const dispatch = useDispatch();
@@ -14,15 +15,26 @@ export default function Detail() {
 
   return (
     <>
-      <div>
+      <div className={styles.divDetail}>
         {Object.entries(stateDetail).length !== 0 ? (
           <div>
-            <h4>Name: {stateDetail.name}</h4>
-            <h4>Status: {stateDetail.status}</h4>
-            <h4> Gender: {stateDetail.gender}.</h4>
-            <h4>Specie: {stateDetail.species}</h4>
-            <h4>Origin: {stateDetail.origin.name}</h4>
-            <img src={stateDetail.image} alt="imagen"></img>
+            <div className={styles.divImg}>
+              <img src={stateDetail.image} alt="imagen" />
+              <h2 className={styles.name}>Name: {stateDetail.name}</h2>
+            </div>
+            <div className={styles.divProps}>
+              <h2 className={styles.cardProps}>Status: {stateDetail.status}</h2>
+              <h2 className={styles.cardProps}>
+                {" "}
+                Gender: {stateDetail.gender}.
+              </h2>
+              <h2 className={styles.cardProps}>
+                Specie: {stateDetail.species}
+              </h2>
+              <h2 className={styles.cardProps}>
+                Origin: {stateDetail.origin.name}
+              </h2>
+            </div>
           </div>
         ) : (
           "LOADINGGGGG"

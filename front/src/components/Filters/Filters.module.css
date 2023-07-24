@@ -1,0 +1,15 @@
+.cntnFilters {
+  display: flex;
+  justify-content: space-between;
+  width: 47%;
+  margin-bottom: 10px;
+  padding: 0.5px;
+}
+.select {
+  border-radius: 5px;
+  font-size: 18px;
+}
+.cntnGen {
+  display: flex;
+  justify-content: center;
+}

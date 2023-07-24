@@ -10,13 +10,11 @@ export default function Form(props) {
   const [errors, setErrors] = useState({ username: "", password: "" });
 
   const handleInputChange = (event) => {
-    
-    
-    setUserData({...userData, [event.target.name] : event.target.value});
+    setUserData({ ...userData, [event.target.name]: event.target.value });
     setErrors(
       validation({
         ...userData,
-        [event.target.name]:event.target.value,
+        [event.target.name]: event.target.value,
       })
     );
   };
@@ -33,7 +31,6 @@ export default function Form(props) {
           name="username"
           value={userData.username}
           onChange={handleInputChange}
-         
         />
         <p className={errors.username && styles.error}>{errors.username}</p>
         <label htmlFor="password">Password:</label>

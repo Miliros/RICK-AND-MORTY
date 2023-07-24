@@ -1,27 +1,21 @@
-var { getCharById } = require("../controllers/getCharById");
-var { getCharDetail } = require("../controllers/getCharDetail.js");
-var { addFav, getFavs, deleteFav } = require("../controllers/favController.js");
-
-var { postUser } = require("../controllers/postUser.js");
-var { getFavs } = require("../controllers/getFavs.js");
-var { postFav } = require("../controllers/postFav.js");
-var { deleteFav } = require("../controllers/deleteFav.js");
-var { login } = require("../controllers/login.js");
+const { getCharById } = require("../controllers/getCharById");
+const { getCharDetail } = require("../controllers/getCharDetail.js");
+const { getAllEpisodes } = require("../controllers/getAllEpisodes");
+const { getFavs } = require("../controllers/getFavs.js");
+const { postFav } = require("../controllers/postFav");
+const { deleteFav } = require("../controllers/deleteFav.js");
+const { getAllChars } = require("../controllers/getAllChars");
 const { Router } = require("express");
+const { getCharByName } = require("../controllers/getCharByName");
 
 const router = Router();
-
+router.get("/all", getAllChars);
+router.get("/episodes", getAllEpisodes);
 router.get("/onsearch/:id", getCharById);
+router.get("/charname", getCharByName);
 router.get("/detail/:id", getCharDetail);
-
-router.post("/fav", addFav);
-router.get("/fav", getFavs);
+router.get("/favs", getFavs);
 router.post("/fav", postFav);
 router.delete("/fav/:id", deleteFav);
-
-module.exports = router;
-
-router.get("/login", login);
-router.post("/login", postUser);
 
 module.exports = router;

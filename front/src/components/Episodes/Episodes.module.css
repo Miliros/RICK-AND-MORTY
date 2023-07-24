@@ -1,0 +1,52 @@
+.cntnEpisodes {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  padding: 22px;
+}
+.cntnCards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  padding: 0px;
+}
+
+.cardEpisodes {
+  margin: 10px;
+  width: 400px;
+  border: 2px solid black;
+  border-radius: 10px;
+  background-color: rgba(228, 203, 174, 0.897);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.name {
+  background-color: rgba(19, 18, 18, 0.493);
+  position: relative;
+  top: 1px;
+  left: 10px;
+  padding: 5px;
+  font-family: "Cinzel", serif;
+  color: white;
+  font-size: 20px;
+  font-weight: 400;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+.divButtonPage {
+  background-color: rgba(73, 211, 170, 0.836);
+  border-radius: 5px;
+  padding: 7px;
+  padding-left: 4.5px;
+  margin-top: 15px;
+  margin-bottom: 13px;
+}

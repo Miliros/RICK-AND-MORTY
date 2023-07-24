@@ -14,39 +14,35 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      status: {
-        type: DataTypes.ENUM("Alive", "Dead", "unknown"),
-        allowNull: false,
-        allowNull: false,
-      },
+      // status: {
+      //   type: DataTypes.STRING,
+      //   allowNull: false,
+      //   allowNull: false,
+      // },
       species: {
         type: DataTypes.STRING,
         allowNull: false,
         allowNull: false,
       },
       gender: {
-        type: DataTypes.ENUM("Female", "Male", "Genderless", "unknown"),
+        type: DataTypes.STRING,
         alllowNull: false,
       },
-      origin: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        allowNull: false,
-      },
+      // origin: {
+      //   type: DataTypes.STRING,
+      //   allowNull: false,
+      //   allowNull: false,
+      // },
       image: {
         type: DataTypes.STRING,
         allowNull: false,
         allowNull: false,
       },
-      // status: {
-      //   type: DataTypes.ENUM("Alive", "Dead", "unknown"),
-      //   allowNull: false,
-      // },
-      // origin: {
-      //   type: DataTypes.STRING,
-      //   allowNull: false,
-      // },
+      checkFav: {
+        type: DataTypes.BOOLEAN,
+      },
     },
+
     { timestamps: false },
     { timestamps: false, tableName: "favorites" }
   );

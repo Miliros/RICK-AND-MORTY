@@ -1,18 +1,50 @@
 const initialState = {
   myFavorites: [],
-  allCharacters: [],
+  allMyFavorites: [],
   detail: [],
+  characters: [],
+  allCharacters: [],
+  checkPagination: false,
+  filterCharacters: [],
+  episodesPage: [],
 };
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "ADD_CHARACTER":
+    case "GETALL_CHARS":
       return {
         ...state,
-        myFavorites: [...state.myFavorites, action.payload],
-        allCharacters: [...state.myFavorites],
+        characters: action.payload,
+        allCharacters: action.payload,
+        checkPagination: true,
       };
-    case "DELETE_CHARACTER": {
+    case "GETALL_EPISODES":
+      return {
+        ...state,
+        episodesPage: action.payload,
+      };
+    case "GET_CHAR_NAME":
+      return {
+        ...state,
+        characters: action.payload,
+        allCharacters: action.payload,
+        checkPagination: false,
+      };
+    case "ADD_FAV":
+      const addFavorites = [...state.allMyFavorites, action.payload];
+      return {
+        ...state,
+        allMyFavorites: [...addFavorites],
+        myFavorites: [...addFavorites],
+      };
+    case "GET_FAVS": {
+      return {
+        ...state,
+        allMyFavorites: [...action.payload],
+        myFavorites: [...action.payload],
+      };
+    }
+    case "DELETE_FAV": {
       return {
         ...state,
         myFavorites: state.myFavorites.filter((char) => {
@@ -22,34 +54,58 @@ const rootReducer = (state = initialState, action) => {
     }
     case "FILTER": {
       return {
-        ...state.allCharacters,
-        myFavorites: state.allCharacters.filter((char) => {
-          return char.payload === action.payload;
-        }),
+        ...state,
+        allCharacters:
+          action.payload === "all"
+            ? state.allCharacters
+            : state.allCharacters.filter((char) => {
+                return char.gender === action.payload;
+              }),
       };
     }
     case "ORDER": {
-      return {
-        ...state.allCharacters,
-        myFavorites: () => {
-          if (action.payload === "Ascendente") {
-            return state.allCharacters.sort((a, b) => a - b);
-          } else if (action.payload === "Descendente") {
-            return state.allCharacters.sort((a, b) => a + b);
-          }
-        },
-      };
-    }
-    case "GET_FAVS": {
+      let orderAlpha =
+        action.payload === "a-z" && state.characters
+          ? state.characters.results.sort(function (a, b) {
+              const nameA = a.name.toLowerCase();
+              const nameB = b.name.toLowerCase();
+              if (nameA > nameB) {
+                return 1;
+              }
+              if (nameB > nameA) {
+                return -1;
+              }
+              return 0;
+            })
+          : state.characters.results.sort(function (a, b) {
+              const nameA = a.name.toLowerCase();
+              const nameB = b.name.toLowerCase();
+              if (nameA > nameB) {
+                return -1;
+              }
+              if (nameB > nameA) {
+                return 1;
+              }
+              return 0;
+            });
       return {
         ...state,
-        myFavorites: action.payload,
+        filterCharacters: orderAlpha,
       };
     }
     case "GET_DETAILS":
       return {
         ...state,
         detail: action.payload,
+      };
+    case "ERROR_CHARACTERS":
+      return {
+        ...state,
+        error: action.payload,
+      };
+    case "REMOVE_STATE":
+      return {
+        ...state,
       };
     default:
       return { ...state };

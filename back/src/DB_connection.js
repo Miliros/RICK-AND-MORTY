@@ -3,6 +3,8 @@ const fs = require("fs");
 const path = require("path");
 const { Sequelize } = require("sequelize");
 const { DB_USER, DB_PASSWORD, DB_HOST } = process.env;
+const favoriteModel = require("../src/models/Favorite");
+const userModel = require("../src/models/User");
 
 const sequelize = new Sequelize(
   `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/rickandmorty`,

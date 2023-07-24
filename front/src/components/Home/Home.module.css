@@ -1,0 +1,27 @@
+.divHome {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.divButtonPage {
+  background-color: rgba(73, 211, 170, 0.836);
+  border-radius: 5px;
+  padding: 7px;
+  padding-left: 4.5px;
+  margin-top: 15px;
+  margin-bottom: 13px;
+}
+.cntnCards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  padding: 0px;
+}
+.cntFilter {
+  display: flex;
+  background-color: red;
+}

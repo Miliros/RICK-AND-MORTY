@@ -1,58 +1,36 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { useDispatch, useSelector } from "react-redux";
-import { orderCards, getFavorite } from "../../redux/action";
+import { orderCards, getFav } from "../../redux/action";
 import styles from "./Favorites.module.css";
+import { useParams } from "react-router-dom";
+import Card from "../Card/Card";
+import Filters from "../Filters/Filters";
 
 export function Favorites() {
   const dispatch = useDispatch();
-  const { myFavorites } = useSelector((state) => state);
+  const MyFavorites = useSelector((state) => state.myFavorites);
 
   useEffect(() => {
-    dispatch(getFavorite());
+    dispatch(getFav());
   }, [dispatch]);
-
-  const handleOptionChange = (event) => {
-    dispatch(orderCards(event.target.value));
-  };
 
   return (
     <div>
-      {myFavorites.map((charact) => (
-        <div className={styles.divCard}>
-          <div className={styles.divImg}>
-            <h2 className={styles.name}>{charact.name}</h2>
-            <img className={styles.img} src={charact.image} alt="" />
-          </div>
-          <div>
-            <select>
-              <option value="Ascendente" onChange={handleOptionChange}>
-                Ascendente
-              </option>
-              <option value="Descendente" onChange={handleOptionChange}>
-                Ascendente
-              </option>
-            </select>
-            <select>
-              <option value="Male" onChange={handleOptionChange}>
-                Male
-              </option>
-              <option value="Female" onChange={handleOptionChange}>
-                Female
-              </option>
-              <option value="Genderless" onChange={handleOptionChange}>
-                Genderless
-              </option>
-              <option value="Genderless" onChange={handleOptionChange}>
-                Genderless
-              </option>
-              <option value="unknown" onChange={handleOptionChange}>
-                unknown
-              </option>
-            </select>
-          </div>
-        </div>
-      ))}
+      {MyFavorites
+        ? MyFavorites.map((e, i) => (
+            <Card
+              id={e.id}
+              name={e.name}
+              species={e.species}
+              gender={e.gender}
+              image={e.image}
+              onClose={false}
+              checkFav={e.checkFav}
+              key={i++}
+            />
+          ))
+        : "loading"}
     </div>
   );
 }

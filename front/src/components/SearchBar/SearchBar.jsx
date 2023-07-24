@@ -1,30 +1,38 @@
 import styles from "./SearchBar.module.css";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { getCharByName } from "../../redux/action";
+import { useLocation } from "react-router-dom";
 
 export default function SearchBar(props) {
-  const [character, setCharacter] = useState("");
-
+  const [characterName, setCharacterName] = useState("");
+  const dispatch = useDispatch();
+  const location = useLocation();
   const handleChange = (e) => {
-    setCharacter(e.target.value);
+    setCharacterName(e.target.value);
+  };
+  const handleOnClick = () => {
+    dispatch(getCharByName(characterName));
   };
   return (
-    <div className={styles.divSerchBar}>
-      <input
-        placeholder="personaje..."
-        className={styles.inputSearch}
-        type="search"
-        onChange={handleChange}
-      />
-      <button
-        className={styles.addButton}
-        onClick={() => props.onSearch(character)}
-      >
-        Agregar
-      </button>
-
-      <button className={styles.buttonRandom} onClick={() => props.random()}>
-        RANDOM CHARACTER
-      </button>
-    </div>
+    <>
+      {location.pathname === "/home" && (
+        <div className={styles.divSerchBar}>
+          <input
+            placeholder="character..."
+            className={styles.inputSearch}
+            type="search"
+            onChange={handleChange}
+          />
+          <button
+            type="submit"
+            className={styles.addButton}
+            onClick={handleOnClick}
+          >
+            search
+          </button>
+        </div>
+      )}
+    </>
   );
 }
