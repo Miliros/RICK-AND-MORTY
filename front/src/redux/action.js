@@ -19,9 +19,9 @@ export const getAllChars = (page, gender) => {
     }
   };
 };
-export const getAllEpisodes = (page) => {
+export const getAllEpisodes = (id) => {
   return async (dispatch) => {
-    const response = await axios(`http://localhost:3000/episodes?page=${page}`);
+    const response = await axios(`http://localhost:3000/episodes/${id}`);
     return dispatch({
       type: "GETALL_EPISODES",
       payload: response.data,

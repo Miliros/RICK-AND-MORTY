@@ -1,8 +1,21 @@
-.divCard {
-  margin: 10px;
-  width: 400px;
-  border: 2px solid black;
-  border-radius: 10px;
-  background-color: rgba(228, 203, 174, 0.897);
+.divCards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
 }
-  
+.addFav {
+  font-size: 30px;
+  color: rgba(247, 250, 250, 0.938);
+  margin-top: 200px;
+  padding: 6px;
+  width: 350px;
+  /* background-color: rgba(86, 86, 88, 0.158); */
+  border: 2px solid rgba(14, 15, 15, 0.89);
+  border-radius: 10px;
+  background-color: rgba(86, 86, 88, 0.158);
+  justify-content: center;
+  align-items: center;
+}

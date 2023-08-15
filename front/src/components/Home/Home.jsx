@@ -5,6 +5,7 @@ import Card from "../Card/Card";
 import { getAllChars } from "../../redux/action";
 import styles from "./Home.module.css";
 import Filters from "../Filters/Filters";
+import logo from "../../../src/lo.gif";
 
 export default function Home(props) {
   const allCharacters = useSelector((state) => state.allCharacters);
@@ -41,16 +42,19 @@ export default function Home(props) {
 
   return (
     <div className={styles.cntnCards}>
-      <div>
-        {" "}
-        <Filters
-          setCount={setCount}
-          setGender={setGender}
-          setCheckState={setCheckState}
-        />
-        <div className={styles.cntnCards}>
-          {characters && characters.results && characters.results.length > 0
-            ? characters.results.map((el, index) => (
+      {characters && characters.results && characters.results.length > 0 ? (
+        <div>
+          {" "}
+          <Filters
+            setCount={setCount}
+            setGender={setGender}
+            setCheckState={setCheckState}
+          />
+          <div className={styles.cntnCards}>
+            {characters &&
+              characters.results &&
+              characters.results.length > 0 &&
+              characters.results.map((el, index) => (
                 <div key={index}>
                   <Card
                     species={el.species}
@@ -58,31 +62,34 @@ export default function Home(props) {
                     image={el.image}
                     gender={el.gender}
                     id={el.id}
-                    onClose={() => props.onClose()}
                   />
                 </div>
-              ))
-            : "Loading"}
-        </div>
-        {checkPagination === true && (
-          <div className={styles.divPagination}>
-            <button
-              onClick={prevPage}
-              disabled={count === 1}
-              className={styles.divButtonPage}
-            >
-              prev
-            </button>
-            <button
-              disabled={count === allCharacters.info.pages}
-              onClick={nextPage}
-              className={styles.divButtonPage}
-            >
-              next
-            </button>
+              ))}
           </div>
-        )}
-      </div>
+          {checkPagination === true && (
+            <div className={styles.divPagination}>
+              <button
+                onClick={prevPage}
+                disabled={count === 1}
+                className={styles.divButtonPage}
+              >
+                prev
+              </button>
+              <button
+                disabled={count === allCharacters.info.pages}
+                onClick={nextPage}
+                className={styles.divButtonPage}
+              >
+                next
+              </button>
+            </div>
+          )}
+        </div>
+      ) : (
+        <div>
+          <img className={styles.loading} src={logo} alt="" />
+        </div>
+      )}
     </div>
   );
 }

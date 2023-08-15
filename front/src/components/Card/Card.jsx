@@ -2,56 +2,42 @@ import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import styles from "./Card.module.css";
 import { AddFav, deleteFav, getFav } from "../../redux/action";
-// import { connect } from "react-redux";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { IconHeart, IconX } from "@tabler/icons-react";
 
 export function Card(props) {
-  const [isFav, setIsFav] = useState(false);
-  const [isOpen, setIsOpen] = useState(true);
-
   const dispatch = useDispatch();
-  const handleFavorite = () => {
-    if (isFav === true || props.checkFav === true) {
-      setIsFav(false);
-      dispatch(deleteFav(props.id));
-      dispatch(getFav());
-    }
-    if (isFav === false) {
-      setIsFav(true);
-      dispatch(AddFav(props));
+  const MyFavorites = useSelector((state) => state.myFavorites);
+  const isFavorite = MyFavorites.filter((fav) => fav.id === props.id);
+
+  const handleFavorite = async () => {
+    if (props.checkFav === true || isFavorite[0]?.id === props.id) {
+      await dispatch(deleteFav(props.id));
+      await dispatch(getFav());
+    } else {
+      await dispatch(AddFav(props));
+      await dispatch(getFav());
     }
   };
-  const handleClick = () => {
-    setIsOpen(false);
-    props.onClose();
-  };
-  if (!isOpen) {
-    return null;
-  }
 
   return (
     <div className={styles.divCard}>
       <div className={styles.divButtons}>
         <div>
-          {isFav || props.checkFav ? (
-            <button className={styles.buttonFavorite} onClick={handleFavorite}>
-              ❤️
-            </button>
+          {isFavorite[0]?.id === props.id || props.checkFav === true ? (
+            <div className={styles.buttonFavorite} onClick={handleFavorite}>
+              <IconHeart color="red" />
+            </div>
           ) : (
-            <button className={styles.buttonFavorite} onClick={handleFavorite}>
-              🤍
-            </button>
+            <div className={styles.buttonFavorite} onClick={handleFavorite}>
+              <IconHeart />
+            </div>
           )}
-        </div>
-        <div>
-          <button className={styles.buttonOnClose} onClick={handleClick}>
-            X
-          </button>
         </div>
       </div>
 
+      <img className={styles.img} src={props.image} alt="" />
       <div className={styles.divImg}>
-        <img className={styles.img} src={props.image} alt="" />
         <Link to={`/detail/${props.id}`}>
           <h2 className={styles.name}>{props.name}</h2>
         </Link>

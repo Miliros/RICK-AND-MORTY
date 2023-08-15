@@ -29,7 +29,7 @@ export default function SearchBar(props) {
             className={styles.addButton}
             onClick={handleOnClick}
           >
-            search
+            Search
           </button>
         </div>
       )}

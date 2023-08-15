@@ -1,16 +1,29 @@
 .divHome {
   padding: 10px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  width: 80%;
 }
 .divButtonPage {
+  display: inline-block;
+  outline: 0;
+  text-align: center;
+  cursor: pointer;
+  padding: 0px 16px;
+  border-radius: 2px;
+  min-width: 80px;
+  height: 30px;
+  background-color: rgb(255, 255, 255);
+  color: rgb(50, 49, 48);
+  font-size: 14px;
+  font-weight: 400;
+  box-sizing: border-box;
+  border: 1px solid rgb(138, 136, 134);
+  margin: 15px;
+}
+.divButtonPage:hover {
   background-color: rgba(73, 211, 170, 0.836);
-  border-radius: 5px;
-  padding: 7px;
-  padding-left: 4.5px;
-  margin-top: 15px;
-  margin-bottom: 13px;
 }
 .cntnCards {
   display: flex;
@@ -19,9 +32,15 @@
   justify-content: center;
   text-align: center;
   width: 100%;
-  padding: 0px;
 }
 .cntFilter {
   display: flex;
-  background-color: red;
+}
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 180px;
+  margin-top: 200px;
 }

@@ -24,7 +24,7 @@ export default function Filters({ setCount, setGender, setCheckState }) {
         <div className={styles.divFilter}>
           <p>Filters</p>
           <div>
-            <label>Gender</label>
+            <label className={styles.label}>Gender</label>
             <select
               className={styles.select}
               onChange={(e) => handleFiltergender(e)}
@@ -39,7 +39,7 @@ export default function Filters({ setCount, setGender, setCheckState }) {
         </div>
         <div className={styles.divOrder}>
           <p>Order</p>
-          <label>Alphabetically</label>
+          <label className={styles.label}>Alphabetically</label>
           <select
             className={styles.select}
             onChange={(e) => handleOrderName(e)}

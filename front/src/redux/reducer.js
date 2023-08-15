@@ -6,7 +6,7 @@ const initialState = {
   allCharacters: [],
   checkPagination: false,
   filterCharacters: [],
-  episodesPage: [],
+  episodes: [],
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -21,7 +21,7 @@ const rootReducer = (state = initialState, action) => {
     case "GETALL_EPISODES":
       return {
         ...state,
-        episodesPage: action.payload,
+        episodes: action.payload,
       };
     case "GET_CHAR_NAME":
       return {

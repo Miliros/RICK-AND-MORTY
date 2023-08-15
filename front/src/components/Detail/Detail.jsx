@@ -3,10 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { getDetail } from "../../redux/action";
 import styles from "./Detail.module.css";
+import lo from "../../../src/lo.gif";
 
 export default function Detail() {
   const dispatch = useDispatch();
   const stateDetail = useSelector((state) => state.detail);
+  console.log(stateDetail);
   const { id } = useParams();
 
   useEffect(() => {
@@ -15,30 +17,43 @@ export default function Detail() {
 
   return (
     <>
-      <div className={styles.divDetail}>
-        {Object.entries(stateDetail).length !== 0 ? (
-          <div>
-            <div className={styles.divImg}>
-              <img src={stateDetail.image} alt="imagen" />
-              <h2 className={styles.name}>Name: {stateDetail.name}</h2>
+      <div className={styles.cntnDetail}>
+        <div className={styles.divDetail}>
+          {Object.entries(stateDetail).length !== 0 ? (
+            <div className={styles.cntnDataDetail}>
+              <p className={styles.name}>{stateDetail.name}</p>
+
+              <div className={styles.ctnImgProps}>
+                <img
+                  className={styles.img}
+                  src={stateDetail.image}
+                  alt="imagen"
+                />
+
+                <div className={styles.divProps}>
+                  <p className={styles.cardProps}>
+                    Status: {stateDetail.status}
+                  </p>
+                  <p className={styles.cardProps}>
+                    {" "}
+                    Gender: {stateDetail.gender}.
+                  </p>
+                  <p className={styles.cardProps}>
+                    Specie: {stateDetail.species}
+                  </p>
+                  <p className={styles.cardProps}>
+                    Origin: {stateDetail.origin.name}
+                  </p>
+                  <p className={styles.cardProps}>
+                    Location: {stateDetail.location.name}
+                  </p>
+                </div>
+              </div>
             </div>
-            <div className={styles.divProps}>
-              <h2 className={styles.cardProps}>Status: {stateDetail.status}</h2>
-              <h2 className={styles.cardProps}>
-                {" "}
-                Gender: {stateDetail.gender}.
-              </h2>
-              <h2 className={styles.cardProps}>
-                Specie: {stateDetail.species}
-              </h2>
-              <h2 className={styles.cardProps}>
-                Origin: {stateDetail.origin.name}
-              </h2>
-            </div>
-          </div>
-        ) : (
-          "LOADINGGGGG"
-        )}
+          ) : (
+            <img src={lo} alt="" className={styles.loading} />
+          )}
+        </div>
       </div>
     </>
   );

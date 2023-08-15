@@ -12,7 +12,7 @@ function App() {
   const [characters, setCharacters] = useState([]);
   const [access, setAccess] = useState(false);
   const username = "milagros4046@hotmail.com";
-  const password = "Rosales123";
+  const password = "Rosaher123";
   const navigate = useNavigate();
 
   function login(userData) {

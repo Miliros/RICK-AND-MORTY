@@ -5,7 +5,7 @@ import { orderCards, getFav } from "../../redux/action";
 import styles from "./Favorites.module.css";
 import { useParams } from "react-router-dom";
 import Card from "../Card/Card";
-import Filters from "../Filters/Filters";
+import lo from "../../../src/lo.gif";
 
 export function Favorites() {
   const dispatch = useDispatch();
@@ -16,21 +16,25 @@ export function Favorites() {
   }, [dispatch]);
 
   return (
-    <div>
-      {MyFavorites
-        ? MyFavorites.map((e, i) => (
-            <Card
-              id={e.id}
-              name={e.name}
-              species={e.species}
-              gender={e.gender}
-              image={e.image}
-              onClose={false}
-              checkFav={e.checkFav}
-              key={i++}
-            />
-          ))
-        : "loading"}
+    <div className={styles.divCards}>
+      {MyFavorites && MyFavorites.length > 0 ? (
+        MyFavorites.map((e, i) => (
+          <Card
+            id={e.id}
+            name={e.name}
+            species={e.species}
+            gender={e.gender}
+            image={e.image}
+            onClose={false}
+            checkFav={e.checkFav}
+            key={i++}
+          />
+        ))
+      ) : (
+        <div className={styles.addFav}>
+          <p>Add your favorite!</p>
+        </div>
+      )}
     </div>
   );
 }

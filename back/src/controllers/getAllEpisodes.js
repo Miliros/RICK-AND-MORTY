@@ -1,12 +1,10 @@
 const axios = require("axios");
 
 const getAllEpisodes = async (req, res) => {
-  let { page } = req.query;
-
+  const params = req.params;
   try {
-    console.log(page);
     const apiResponse = await axios.get(
-      `https://rickandmortyapi.com/api/episode?page=${page}`
+      `https://rickandmortyapi.com/api/episode/${params.id}`
     );
     res.status(200).json(apiResponse.data);
   } catch (error) {

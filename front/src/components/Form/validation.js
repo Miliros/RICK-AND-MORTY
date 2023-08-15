@@ -1,26 +1,24 @@
 const regexEmail = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
-const regexPasswordC = /^.{6,10}$/;
-const regexPassword = new RegExp('^[0-9]+$');
+const regexPasswordC = /^(?=.*[a-zA-Z])(?=.*\d).{6,10}$/;
+const regexPassword = /^(?=.*[a-zA-Z])(?=.*\d).+$/;
 
-export function validation({username, password}) {
-    
+export function validation({ username, password }) {
   const errors = {};
 
   if (username === "") {
-    errors.username = "Se requiere un nombre";
+    errors.username = "a name is required";
   }
   if (!regexEmail.test(username)) {
-    errors.username = "Debe ser un correo electrónico";
+    errors.username = "It must be an email";
   }
   if (username.length >= 35) {
-    errors.username = "No se permiten mas caracteres";
+    errors.username = "No more characters allowed";
   }
   if (!regexPassword.test(password)) {
-    errors.password = "la contraseña tiene que tener al menos un número";
+    errors.password = "password must be alphanumeric";
   }
   if (!regexPasswordC.test(password)) {
-    errors.pasword = "la contraseña tiene que tener entre 6 y 10 caracteres";
+    errors.pasword = "the password has to be between 6 and 10 characters";
   }
   return errors;
-  
 }

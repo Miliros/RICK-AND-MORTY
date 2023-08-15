@@ -10,7 +10,7 @@ const { getCharByName } = require("../controllers/getCharByName");
 
 const router = Router();
 router.get("/all", getAllChars);
-router.get("/episodes", getAllEpisodes);
+router.get("/episodes/:id", getAllEpisodes);
 router.get("/onsearch/:id", getCharById);
 router.get("/charname", getCharByName);
 router.get("/detail/:id", getCharDetail);

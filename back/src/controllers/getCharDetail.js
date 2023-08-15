@@ -8,7 +8,12 @@ const getCharDetail = async (req, res) => {
     const { data } = await axios.get(`${URL}${params.id}`);
     const obj = filterData(data);
 
-    res.status(200).json({ ...obj, status: data.status, origin: data.origin });
+    res.status(200).json({
+      ...obj,
+      status: data.status,
+      origin: data.origin,
+      location: data.location,
+    });
   } catch (error) {
     res.status(500).json({ message: error });
   }
