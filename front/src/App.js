@@ -8,6 +8,7 @@ import Favorites from "./components/Favorites/Favorites";
 import Home from "./components/Home/Home";
 import Episodes from "./components/Episodes/Episodes";
 
+
 function App() {
   const [characters, setCharacters] = useState([]);
   const [access, setAccess] = useState(false);

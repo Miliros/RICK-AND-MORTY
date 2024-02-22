@@ -8,14 +8,14 @@
 }
 .addFav {
   font-size: 30px;
-  color: rgba(247, 250, 250, 0.938);
+  color: rgb(8, 8, 8);
   margin-top: 200px;
   padding: 6px;
   width: 350px;
   /* background-color: rgba(86, 86, 88, 0.158); */
   border: 2px solid rgba(14, 15, 15, 0.89);
   border-radius: 10px;
-  background-color: rgba(86, 86, 88, 0.158);
+  background-color: rgba(219, 216, 223, 0.808);
   justify-content: center;
   align-items: center;
 }

@@ -29,7 +29,7 @@
   font-size: 30px;
   margin-bottom: 26px;
   margin-top: 0px;
-  color: rgba(247, 250, 250, 0.938);
+  color: rgb(8, 8, 8);
 }
 .divProps {
   display: flex;
@@ -37,7 +37,7 @@
   font-size: 15px;
   font-family: "Cinzel", serif;
   font-weight: 600;
-  color: rgba(247, 250, 250, 0.938);
+  color: rgb(8, 8, 8);
   position: relative;
   margin-left: 23px;
 }

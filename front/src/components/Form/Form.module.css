@@ -1,10 +1,25 @@
+.cntnForm {
+  background-image: url(../../rick-landing.jpg);
+  background-size: cover;
+  object-fit: cover;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  z-index: -1;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
 .styleForm {
-  background-color: rgba(255, 255, 255, 0.788);
-  height: 300px;
+  background-color: rgba(255, 255, 255, 0.87);
+  height: 320px;
   display: inline-block;
-  margin: 180px;
+  margin-bottom: 50px;
+  justify-content: center;
   border-radius: 8px;
-  padding: 20px;
+  padding: 35px;
 }
 .ctnInputs {
   display: flex;
@@ -55,7 +70,7 @@
 }
 
 .image {
-  height: 80px;
+  height: 75px;
   object-fit: scale-down;
   border-radius: 50%;
   margin-top: 15px;

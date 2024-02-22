@@ -49,7 +49,7 @@ export default function Episodes() {
         <div className={styles.ctnData}>
           <div className={styles.ctnName}>
             <label htmlFor="numbers" className={styles.label}>
-              Select episode:
+              <strong>Select episode:</strong>
             </label>
             <select
               className={styles.select}
@@ -74,7 +74,9 @@ export default function Episodes() {
             <h1 className={styles.name}>{episodes?.air_date}.</h1>
           </div>
         </div>
-        <p className={styles.characters}>Characters</p>
+        <p className={styles.characters}>
+          <strong>Characters</strong>
+        </p>
         <div className={styles.cntnCards}>
           {arrayCharacters && arrayCharacters && arrayCharacters.length > 0 ? (
             arrayCharacters.map((el, index) => (

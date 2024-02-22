@@ -25,7 +25,7 @@ export default function Form(props) {
   };
 
   return (
-    <div>
+    <div className={styles.cntnForm}>
       <form className={styles.styleForm} onSubmit={handleSubmit}>
         <img className={styles.image} src={logo} alt="" />
 
