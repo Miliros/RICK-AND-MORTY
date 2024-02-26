@@ -22,7 +22,7 @@ export default function Filters({ setCount, setGender, setCheckState }) {
     <div className={styles.cntnGen}>
       <div className={styles.cntnFilters}>
         <div className={styles.divFilter}>
-          <p>Filters</p>
+          <p className={styles.p}>Filters</p>
           <div>
             <label className={styles.label}>Gender</label>
             <select
@@ -38,7 +38,7 @@ export default function Filters({ setCount, setGender, setCheckState }) {
           </div>
         </div>
         <div className={styles.divOrder}>
-          <p>Order</p>
+          <p className={styles.p}>Order</p>
           <label className={styles.label}>Alphabetically</label>
           <select
             className={styles.select}

@@ -33,6 +33,7 @@
 .cardProps {
   font-family: "Cinzel", serif;
   display: flex;
+  font-size: 15px;
 }
 .divProps {
   display: flex;

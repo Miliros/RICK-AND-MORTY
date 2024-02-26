@@ -1,18 +1,28 @@
 .navBar {
   background-color: rgba(219, 216, 223, 0.808);
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: center; /* Centra los elementos horizontalmente */
+  align-items: center;  justify-content: space-between;
   padding: 25px;
 }
-
+.p{
+  margin: 0px;
+}
 .links {
   text-decoration: none;
   padding-right: 35px;
   color: black;
+  display: flex;
+  justify-content: center; /* Centra horizontalmente los enlaces */
+  align-items: center; /* Centra verticalmente los enlaces */
 }
 .divLinks {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  
+
 }
 .logo {
   display: flex;
@@ -20,4 +30,14 @@
   width: 150px;
   object-fit: fill;
   margin-right: 80px;
+}
+.imgAvatar{
+  border-radius: 50%;
+  width: 50px;
+  object-fit: contain;
+  cursor: pointer;
+}
+.item{
+  cursor: pointer;
+  font-size: 13px !important;
 }

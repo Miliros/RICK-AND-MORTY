@@ -9,7 +9,7 @@
   height: 30px;
   background-color: rgba(255, 255, 255, 0.459);
   color: rgb(8, 8, 8);
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 400;
   box-sizing: border-box;
   border: 1px solid rgb(138, 136, 134);
@@ -23,9 +23,10 @@
   margin-right: 15px;
   border: 1px solid black;
   box-shadow: 0px -0px black;
-  padding: 7px;
+  padding: 4px;
   height: 30px;
   width: 300px;
+  font-size: 12px;
 }
 .divSerchBar {
   display: flex;
